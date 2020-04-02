@@ -23,8 +23,8 @@ class Webpage {
         const browser = await puppeteer.launch({ headless: true }); // Puppeteer can only generate pdf in headless mode.
         const page = await browser.newPage();
         await page.goto(url); // Adjust network idle as required.
-        await page.type('.username_help', 'krzysztof.malarowicz@metropolitaninvestment.pl');
-        await page.type('#form_basic_password', 'Pierogi123!');
+        await page.type('.username_help', '');
+        await page.type('#form_basic_password', '');
         await page.keyboard.press('Enter');
         await page.waitForNavigation({waitUntil: 'load', timeout: 0});
         await page.evaluate(() => {
@@ -95,7 +95,7 @@ class Webpage {
 (async() => {
     for(i = 0; i <= klienci.length - 1; i++){
         id = klienci[i]
-        const url = 'https://app.bergsystem.pl/userdata/change/' + id;
+        const url = 'https://' + id;
         const buffer = await Webpage.bot(url);
         aktualny = i + 1
         console.log("Zgranych klientów " + aktualny + " / " + klienci.length)
